@@ -1,10 +1,12 @@
 'use strict';
 
 var app = app || {};
-var __API_URL__ = '';
+var __API_URL__ = 'http://127.0.0.1:3000';
 
 (function(module) {
   function errorCallback(err) {
+    console.log('Task.fetchAll failed to retrieve data from the server.js.');
+    console.log(err);
     module.errorView.initErrorPage(err);
   }
 
