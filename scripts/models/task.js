@@ -1,6 +1,7 @@
 'use strict';
 
 var app = app || {};
+// TODO: hard coded this for now because I wasn't paying attention the day they taught how to set vaiables in terminal.
 var __API_URL__ = 'http://127.0.0.1:3000';
 
 (function(module) {
