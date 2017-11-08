@@ -1,6 +1,6 @@
 'use strict';
 
-let __API_URL__ = 'http://fr-pc-dm-booklist.herokuapp.com';
+let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
 
 let getMessage = ()=> {
   console.log('Requesting data from server.js');
