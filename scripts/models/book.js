@@ -1,10 +1,10 @@
 'use strict';
 
-let __API_URL__ = 'http://127.0.0.1:3000';
+let __API_URL__ = 'http://fr-pc-dm-booklist.herokuapp.com';
 
 let getMessage = ()=> {
   console.log('Requesting data from server.js');
-  $.get('http://127.0.0.1:3000/test')
+  $.get(`${__API_URL__}/test`)
     .done((data) => {console.log(data)})
     .fail(()=> {console.log('failure')})
 }
