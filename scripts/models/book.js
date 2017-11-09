@@ -1,5 +1,7 @@
 'use strict';
 
+//var app = app || {};
+
 let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
 
 let getMessage = () => {
