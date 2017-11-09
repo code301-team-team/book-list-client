@@ -3,8 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+
+    <script type="text/x-handlebars-template" id="book-template">
+      <li class="book-item">
+      <h4>Title: {{title}} </h4>
+        <p>Author: {{author}}</p>
+        <img src={{image_url}}></img>
+      </li>
+    </script>
+
+
+
   </head>
   <body>
+
+    <section class="book-view container">
+      <h3>My Books</h3>
+      <ul id="book-list">
+      </ul>
+    </section>
+
+
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
