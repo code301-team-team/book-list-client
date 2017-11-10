@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Books</title>
-
+    <title>Team "Team" Booklist App</title>
 
     <script type="text/x-handlebars-template" id="book-template">
       <li class="book-item">
@@ -13,24 +12,24 @@
       </li>
     </script>
 
-
-
   </head>
   <body>
 
     <section class="book-view container">
       <h3>My Books</h3>
-      <ul id="book-list">
-      </ul>
+      <ul id="book-list"></ul>
     </section>
 
-    <section id="error-message"></section>
+    <section id="error-message">
+      <h3>Something Went Wrong</h3>
+      <section id="error-message"></section>
+    </section>
 
 
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-    <script src="scripts/models/book.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src='scripts/models/book.js'></script>
+    <script src='scripts/views/book-view.js'></script>
+    <script src='scripts/views/error-view.js'></script>
   </body>
 </html>
