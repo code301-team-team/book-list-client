@@ -38,19 +38,31 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   Book.all = [];
 
   Book.loadAll = rows => {
-  rows.sort((a, b) => a[title] > b[title] ? (a[title] === b[title] ? 0 : -1) : 1);
-  Book.all = rows.map(row => new Book(row));
+    rows.sort((a, b) => a[title] > b[title] ? (a[title] === b[title] ? 0 : -1) : 1);
+    Book.all = rows.map(row => new Book(row));
   };
 
   Book.fetchAll = callback => {
-      $.get(`${__API_URL__}/api/v1/books`)
-        .then(results => Book.loadAll(results))
-        .then(callback)
-        .catch(errorView.errorCallback)
-    };
+    $.get(`${__API_URL__}/api/v1/books`)
+      .then(results => Book.loadAll(results))
+      .then(callback)
+      .catch(errorView.errorCallback)
+  };
+
+  Book.fetchOne = callback => {
+    $.get(`$(__API_URL__)/api/v1/books/:book_id`)
+      .then(results => Book.loadAll(results))
+      .catch(errorView.errorCallback)
+  }
+
+  Book.addOne = book => {
+    $.post(`(__API_URL__)/api/v1/books/add`,book)
+      .then(() => page('/'))
+      .catch(errorView.errorCallback);
+  }
 
   module.Book = Book;
 
 })(app);
 
-$(document).ready(app.Book.fetchAll(app.bookView.initIndexPage));
+// $(document).ready(app.Book.fetchAll(app.bookView.initIndexPage));
