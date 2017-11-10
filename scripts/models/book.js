@@ -38,6 +38,7 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   Book.all = [];
 
   Book.loadAll = rows => {
+    console.log(`Something Special${rows}`)
     rows.sort((a, b) => a[title] > b[title] ? (a[title] === b[title] ? 0 : -1) : 1);
     Book.all = rows.map(row => new Book(row));
   };
