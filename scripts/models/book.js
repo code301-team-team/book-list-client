@@ -4,7 +4,7 @@ var app = app || {};
 let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
 
 (function (module) {
-
+  // console.log('book.js is loading');
   function getMessage() {
     console.log('Requesting data from server.js');
     $.get(`${__API_URL__}/test`)
@@ -43,10 +43,11 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   };
 
   Book.fetchAll = callback => {
+      console.log('fetchAll!')
     $.get(`${__API_URL__}/api/v1/books`)
       .then(results => Book.loadAll(results))
       .then(callback)
-      .catch(errorView.errorCallback)
+      .catch(app.errorView.errorCallback)
   };
 
   Book.fetchOne = callback => {
@@ -62,7 +63,7 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   }
 
   module.Book = Book;
-
+  console.log('book.js finished!');
 })(app);
 
 // $(document).ready(app.Book.fetchAll(app.bookView.initIndexPage));

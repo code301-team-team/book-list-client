@@ -4,14 +4,24 @@ var app = app || {};
 
 (function (module) {
 
-  const bookView = {};
+  const bookListView = {};
 
-  bookView.initIndexPage = function () {
+  bookListView.initIndexPage = function () {
     $('.container').hide();
-    $('.book-view').show();
+    $('.book-list-view').show();
     Book.all.map(book => $('#book-list').append(book.toHtml()));
   };
 
-  module.bookView = bookView;
+  module.bookListView = bookListView;
+
+  const bookDetailView = {};
+
+  bookDetailView.initIndexPage = function () {
+    $('.container').hide();
+    $('.book-detailed-view').show();
+    Book.all.book.toHtml();
+  };
+
+  module.bookDetailView = bookDetailView;
 
 })(app)

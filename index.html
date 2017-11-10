@@ -4,23 +4,36 @@
     <meta charset="utf-8">
     <title>Team "Team" Booklist App</title>
 
-    <script type="text/x-handlebars-template" id="book-template">
-      <li class="book-item">
-      <h4>Title: {{title}} </h4>
-        <p>Author: {{author}}</p>
-        <img src={{image_url}}></img>
+    <script type="text/x-handlebars-template" id="book-li-template">
+      <li class="book-li">
+        <img class="book-image" src={{image_url}}></img>
+        <h4 class="book-title">Title: {{title}} </h4>
+        <p class="book-author">Author: {{author}}</p>
       </li>
+    </script>
+
+    <script type="text/x-handlebars-template" id="book-detailed-template">
+      <div class="book-detail">
+        <img class="book-image" src={{image_url}}></img>
+        <h4 class="book-title">Title: {{title}} </h4>
+        <p class="book-author">Author: {{author}}</p>
+        <p class="book-author">Description: {{description}}</p>
+        <p class="book-author">ISBN: {{isbn}}</p>
+      </div>
     </script>
 
   </head>
   <body>
 
-    <section class="book-view container">
+    <section class="book-list-view container">
       <h3>My Books</h3>
       <ul id="book-list"></ul>
     </section>
 
-    <section id="error-message">
+      <section class="book-detail-view container">
+      </section>
+
+    <section class="error-message container">
       <h3>Something Went Wrong</h3>
       <section id="error-message"></section>
     </section>
@@ -31,9 +44,9 @@
     <!-- page.js -->
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src='scripts/models/book.js'></script>
-    <script src='scripts/views/routes.js'></script>
     <script src='scripts/views/book-view.js'></script>
     <script src='scripts/views/error-view.js'></script>
+    <script src='scripts/views/routes.js'></script>
 
   </body>
 </html>
