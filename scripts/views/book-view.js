@@ -7,7 +7,7 @@
   bookListView.initIndexPage = function () {
     $('.container').hide();
     $('.book-list-view').show();
-    app.Book.all.map(book => $('#book-list').append(book.toHtml()));
+    Book.all.map(book => $('#book-list').append(book.toHtml()));
   };
 
   module.bookListView = bookListView;
@@ -17,7 +17,7 @@
   bookDetailView.initIndexPage = function () {
     $('.container').hide();
     $('.book-detailed-view').show();
-    app.Book.all.book.toHtml();
+    Book.all.book.toHtml();
   };
 
   module.bookDetailView = bookDetailView;
