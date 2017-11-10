@@ -10,9 +10,9 @@ var app = app || {};
     $('.container').hide();
     $('.book-list-view').show();
     Book.all.map(book => $('#book-list').append(book.toHtml()));
+    console.log('bookListView')
   };
 
-console.log('bookListView')
   module.bookListView = bookListView;
 
   const bookDetailView = {};

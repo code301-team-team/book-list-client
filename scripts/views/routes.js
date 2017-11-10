@@ -1,5 +1,5 @@
 'use strict';
-page('/', ctx => app.Book.fetchAll(app.bookListView.initIndexPage));
+page('/', ctx => console.log('first page route fired'));
 page('/books/:book_id', ctx => {
   app.Book.fetchOne(ctx, app.bookDetailView.initIndexPage)
 });
