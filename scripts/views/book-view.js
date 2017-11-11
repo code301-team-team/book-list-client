@@ -5,10 +5,11 @@
   const bookListView = {};
 
   bookListView.initIndexPage = function () {
-    console.log('bookListView');
+    console.log('booklistView.initIndexPage')
     $('.container').hide();
     $('.book-list-view').show();
-    app.Book.all.forEach(book => $('#book-list').append(book.toHtml()));
+    module.Book.all.map(book => $('#book-list').append(book.toHtml()));
+
   };
 
   module.bookListView = bookListView;
