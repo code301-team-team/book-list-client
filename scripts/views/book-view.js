@@ -8,7 +8,7 @@
     console.log('bookListView');
     $('.container').hide();
     $('.book-list-view').show();
-    app.Book.all.map(book => $('#book-list').append(book.toHtml()));
+    app.Book.all.forEach(book => $('#book-list').append(book.toHtml()));
   };
 
   module.bookListView = bookListView;
