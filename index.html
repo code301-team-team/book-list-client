@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Team "Team" Booklist App</title>
 
-    <script type="text/x-handlebars-template" id="book-list-template">
-      <li class="book-list-item">
+    <script type="text/x-handlebars-template" id="book-li-template">
+      <li class="book-li">
         <img class="book-image" src={{image_url}}></img>
         <h4 class="book-title">Title: {{title}} </h4>
         <p class="book-author">Author: {{author}}</p>
@@ -30,8 +30,8 @@
       <ul id="book-list"></ul>
     </section>
 
-      <section class="book-detail-view container">
-      </section>
+    <section class="book-detail-view container">
+    </section>
 
     <section class="error-message container">
       <h3>Something Went Wrong</h3>
@@ -39,14 +39,14 @@
     </section>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <!-- page.js -->
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-    <script src="scripts/models/book.js"></script>
-    <script src="scripts/views/book-view.js"></script>
-    <script src="scripts/views/error-view.js"></script>
-    <script src="scripts/views/routes.js"></script>
+    <script src='scripts/models/book.js'></script>
+    <script src='scripts/views/book-view.js'></script>
+    <script src='scripts/views/error-view.js'></script>
+    <script src='scripts/views/routes.js'></script>
 
   </body>
 </html>
