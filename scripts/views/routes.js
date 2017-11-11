@@ -1,7 +1,7 @@
 'use strict';
-page('/book-list-client/', ctx => app.Book.fetchAll(ctx, app.bookListView.initIndexPage));
-page('/book-list-client/books:book_id', ctx => {
-  app.Book.fetchOne(ctx, app.bookDetailView.initIndexPage)
+page('/', () => app.Book.fetchAll( app.bookListView.initIndexPage));
+page('/books:book_id', () => {
+  app.Book.fetchOne( app.bookDetailView.initIndexPage)
 });
-page('/book-list-client/new', ctx => app.Book.addOne(app.bookView.initIndexPage));
+page('/new', () => app.Book.addOne(app.bookView.initIndexPage));
 page();

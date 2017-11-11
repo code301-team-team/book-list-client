@@ -7,9 +7,10 @@ var app = app || {};
   const bookListView = {};
 
   bookListView.initIndexPage = function () {
+    console.log('initIndexPage')
     $('.container').hide();
     $('.book-list-view').show();
-    Book.all.map(book => $('#book-list').append(book.toHtml()));
+    module.Book.all.map(book => $('#book-list').append(book.toHtml()));
     console.log('bookListView');
   };
 
