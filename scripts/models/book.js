@@ -48,11 +48,7 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   };
 
   Book.fetchAll = callback => {
-<<<<<<< HEAD
-    console.log('fetchAll!', callback);
-=======
     //console.log('fetchAll!')
->>>>>>> 8f5e4131e6b8566ede299a7f15449df91c6b071b
     $.get(`${__API_URL__}/api/v1/books`)
     .then(results => Book.loadAll(results))
     .then(callback)
