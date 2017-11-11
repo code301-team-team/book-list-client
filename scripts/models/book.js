@@ -1,6 +1,7 @@
 'use strict';
 
 var app = app || {};
+//let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
 let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
 
 (function (module) {
@@ -32,6 +33,7 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
 
   Book.prototype.toHtml = function () {
     let template = Handlebars.compile($('#book-list-template').text());
+    console.log(template);
     return template(this);
   };
 
@@ -41,14 +43,16 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
     rows.sort((a, b) => a.title > b.title ? (a.title === b.title ? 0 : -1) : 1);
     console.log(rows);
     Book.all = rows.map(row => new Book(row));
+    console.log('output.all');
   };
 
   Book.fetchAll = callback => {
-    console.log('fetchAll!')
+    console.log('fetchAll!', callback);
     $.get(`${__API_URL__}/api/v1/books`)
-    // .then(results => console.log(results))
     .then(results => Book.loadAll(results))
     .then(callback)
+    //.then(()=>console.log('Second .then firin on FetchAll, after loadAll()'))
+    //.then(callback())
     .catch(app.errorView.errorCallback)
   };
 
