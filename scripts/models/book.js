@@ -48,6 +48,7 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
     $.get(`${__API_URL__}/api/v1/books`)
     // .then(results => console.log(results))
     .then(results => Book.loadAll(results))
+    .then(()=>console.log('Second .then firin on FetchAll, after loadAll()'))
     .then(callback)
     .catch(app.errorView.errorCallback)
   };
