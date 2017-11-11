@@ -2,16 +2,23 @@
 
 (function (module) {
 
-  const bookListView = {};
+  const bookView = {};
 
-  bookListView.initIndexPage = function () {
-    console.log('bookListView');
+  bookView.renderBookList = function () {
+    console.log('bookView.renderBookList');
     $('.container').hide();
     $('.book-list-view').show();
-    app.Book.all.forEach(book => $('#book-list').append(book.toHtml()));
+    app.Book.all.forEach(book => $('#book-list').append(book.toHtml('#book-list-template')));
   };
 
-  module.bookListView = bookListView;
+  bookView.renderBook = function () {
+    console.log('bookView.renderBook');
+    $('.container').hide();
+    $('.book-detail-view').show();
+    app.Book.all.forEach(book => $('#book-list').append(book.toHtml('#book-detail-template')));
+  };
+
+  module.bookView = bookView;
 
   // const bookDetailView = {};
   //
