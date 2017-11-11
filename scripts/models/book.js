@@ -31,39 +31,42 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
     Object.keys(bookObject).forEach(key => this[key] = bookObject[key]);
   }
 
-  Book.prototype.toHtml = function () {
-    let template = Handlebars.compile($('#book-list-template').text());
-    console.log(template);
+  Book.prototype.toHtml = function (elementId) {
+    //console.log(elementId);
+    let template = Handlebars.compile($(elementId).text());
+    //console.log(template);
     return template(this);
   };
 
   Book.all = [];
 
   Book.loadAll = rows => {
-    rows.sort((a, b) => a.title > b.title ? (a.title === b.title ? 0 : -1) : 1);
+    rows.sort((a, b) => a.title < b.title ? (a.title === b.title ? 0 : -1) : 1);
     console.log(rows);
     Book.all = rows.map(row => new Book(row));
     console.log('output.all');
   };
 
   Book.fetchAll = callback => {
+<<<<<<< HEAD
     console.log('fetchAll!', callback);
+=======
+    //console.log('fetchAll!')
+>>>>>>> 8f5e4131e6b8566ede299a7f15449df91c6b071b
     $.get(`${__API_URL__}/api/v1/books`)
     .then(results => Book.loadAll(results))
     .then(callback)
-    //.then(()=>console.log('Second .then firin on FetchAll, after loadAll()'))
-    //.then(callback())
     .catch(app.errorView.errorCallback)
   };
 
   Book.fetchOne = callback => {
-    $.get(`$(__API_URL__)/api/v1/books/:book_id`)
+    $.get(`${(__API_URL__)}/api/v1/books/:book_id`)
     .then(results => Book.loadAll(results))
-    .catch(errorView.errorCallback)
+    .catch(app.errorView.errorCallback)
   }
 
   Book.addOne = book => {
-    $.post(`(__API_URL__)/api/v1/books/add`,book)
+    $.post(`${(__API_URL__)}/api/v1/books/add`, book)
     .then(() => page('/'))
     .catch(errorView.errorCallback);
   }
