@@ -9,7 +9,15 @@
     console.log('bookView.renderBookList');
     $('.container').hide();
     $('.book-list-view').show();
+
     app.Book.all.forEach(book => $('#book-list').append(book.toHtml('#book-list-template')));
+
+    $('.book-list > img').on('click', event => {
+      let book_id = $(event.target).data("bookId");
+      page(`/books/${book_id}`);
+    });
+    //{Get Book's ID (from HTML or whatever)})
+    //page.redirect(/books/{id})
   };
 
   bookView.renderBook = function () {

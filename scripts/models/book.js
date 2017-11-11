@@ -27,6 +27,8 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
     })
   }
 
+  //$('#routeTest').on('click', () => page('/home'));
+
   function Book(bookObject) {
     Object.keys(bookObject).forEach(key => this[key] = bookObject[key]);
   }
@@ -55,9 +57,15 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
     .catch(app.errorView.errorCallback)
   };
 
-  Book.fetchOne = callback => {
-    $.get(`${(__API_URL__)}/api/v1/books/:book_id`)
-    .then(results => Book.loadAll(results))
+  Book.fetchOne = (context, callback) => {
+    console.log(`Hit fetchOne.`)
+    const id = context.params.id;
+    console.log(context);
+    console.log(context.params.id);
+    $.get(`${(__API_URL__)}/api/v1/books/${id}`, id)
+    .then( results => console.log(results)
+      //results => Book.loadAll(results)
+    )
     .catch(app.errorView.errorCallback)
   }
 
