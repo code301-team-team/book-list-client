@@ -16,15 +16,13 @@
       let book_id = $(event.target).data("bookId");
       page(`/books/${book_id}`);
     });
-    //{Get Book's ID (from HTML or whatever)})
-    //page.redirect(/books/{id})
   };
 
   bookView.renderBook = function () {
     console.log('bookView.renderBook');
     $('.container').hide();
     $('.book-detail-view').show();
-    app.Book.all.forEach(book => $('#book-list').append(book.toHtml('#book-detail-template')));
+    $('#book-detail-hook').append(app.Book.all[0].toHtml('#book-detail-template'));
   };
 
   module.bookView = bookView;

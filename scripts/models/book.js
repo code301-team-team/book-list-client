@@ -60,12 +60,11 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   Book.fetchOne = (context, callback) => {
     console.log(`Hit fetchOne.`)
     const id = context.params.id;
-    console.log(context);
-    console.log(context.params.id);
-    $.get(`${(__API_URL__)}/api/v1/books/${id}`, id)
-    .then( results => console.log(results)
-      //results => Book.loadAll(results)
-    )
+    //console.log(context);
+    //console.log(context.params.id);
+    $.get(`${(__API_URL__)}/api/v1/books/${id}`)
+    .then(results => Book.loadAll(results))
+    .then(callback)
     .catch(app.errorView.errorCallback)
   }
 
