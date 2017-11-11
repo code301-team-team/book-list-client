@@ -12,15 +12,17 @@
       </li>
     </script>
 
-    <script type="text/x-handlebars-template" id="book-detail-template">
-      <div class="book-detail">
-        <img class="book-image" src={{image_url}}></img>
-        <h4 class="book-title">Title: {{title}} </h4>
+    <!-- <script type="text/x-handlebars-template" id="book-form-template"> -->
+      <div class="book-form">
+        <label for="book-title"></label>
+        <input class="book-title">Title: {{title}} </input>
         <p class="book-author">Author: {{author}}</p>
         <p class="book-description">Description: {{description}}</p>
         <p class="book-isbn">ISBN: {{isbn}}</p>
+        <p>{{image_url}}</p>
+        <img src='#'></img>
       </div>
-    </script>
+    <!-- </script> -->
 
   </head>
   <body>
@@ -38,6 +40,43 @@
       <h3>Something Went Wrong</h3>
       <section id="error-message"></section>
     </section>
+
+    <section class="book-insert container">
+      <form class="book-insert-form">
+        <h3>Add New Book</h3>
+        <label for="title">Title:</label>
+        <input placeholder="Title" require type="text" name="title">
+        <label for="author">Author:</label>
+        <input placeholder="Author Name" require type="text" name="author">
+        <label for="isbn">ISBN:</label>
+        <input placeholder="ISBN_13 0123456789012" require type="text" name="isbn">
+        <label for="description">Description:</label>
+        <input placeholder="Description" require type="text" name="description">
+        <label for="img_url">Cover URL:</label>
+        <input placeholder="http://via.placeholder.com/128x193" require type="text" name="img_url">
+      </form>
+    </section>
+
+    <!-- <section class="book-edit container">
+
+      <h3>Edit Book</h3>
+
+      <label for="title">Title:</label>
+      <input placeholder="Title" require type="text" name="title">
+
+      <label for="author">Author:</label>
+      <input placeholder="Author Name" require type="text" name="author">
+
+      <label for="isbn">ISBN:</label>
+      <input placeholder="ISBN_13 0123456789012" require type="text" name="isbn">
+
+      <label for="description">Description:</label>
+      <input placeholder="Description" require type="text" name="description">
+
+      <label for="img_url">Cover URL:</label>
+      <input placeholder="http://via.placeholder.com/128x193" require type="text" name="img_url">
+
+    </section> -->
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

@@ -9,22 +9,22 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   function getMessage() {
     console.log('Requesting data from server.js');
     $.get(`${__API_URL__}/test`)
-    .done((data) => {
-      console.log(data)
-    })
-    .fail(() => {
-      console.log('Failure in Proof of Life')
-    })
+      .done((data) => {
+        console.log(data)
+      })
+      .fail(() => {
+        console.log('Failure in Proof of Life')
+      })
   }
 
   function testDatabase() {
     $.get(`${__API_URL__}/api/v1/books`)
-    .done((data) => {
-      console.log(data)
-    })
-    .fail(() => {
-      console.log('Failure connecting to database.')
-    })
+      .done((data) => {
+        console.log(data)
+      })
+      .fail(() => {
+        console.log('Failure connecting to database.')
+      })
   }
 
   //$('#routeTest').on('click', () => page('/home'));
