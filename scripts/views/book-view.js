@@ -2,17 +2,32 @@
 
 (function (module) {
 
-  const bookListView = {};
+  const bookView = {};
 
-  bookListView.initIndexPage = function () {
-    console.log('booklistView.initIndexPage')
+
+  bookView.renderBookList = function () {
+    console.log('bookView.renderBookList');
     $('.container').hide();
     $('.book-list-view').show();
-    module.Book.all.map(book => $('#book-list').append(book.toHtml()));
 
+    app.Book.all.forEach(book => $('#book-list').append(book.toHtml('#book-list-template')));
+
+    $('.book-list > img').on('click', event => {
+      let book_id = $(event.target).data("bookId");
+      page(`/books/${book_id}`);
+    });
+    //{Get Book's ID (from HTML or whatever)})
+    //page.redirect(/books/{id})
   };
 
-  module.bookListView = bookListView;
+  bookView.renderBook = function () {
+    console.log('bookView.renderBook');
+    $('.container').hide();
+    $('.book-detail-view').show();
+    app.Book.all.forEach(book => $('#book-list').append(book.toHtml('#book-detail-template')));
+  };
+
+  module.bookView = bookView;
 
   // const bookDetailView = {};
   //
