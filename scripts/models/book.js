@@ -43,14 +43,15 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   Book.all = [];
 
   Book.loadAll = rows => {
+    console.log('Entering loadAll...');
+    console.log('Book.all.length: ' + Book.all.length);
     rows.sort((a, b) => a.title < b.title ? (a.title === b.title ? 0 : -1) : 1);
-    console.log(rows);
     Book.all = rows.map(row => new Book(row));
-    console.log('output.all');
+    console.log('Book.all: ' + Book.all);
+    console.log('...Leaving loadAll');
   };
 
   Book.fetchAll = callback => {
-    //console.log('fetchAll!')
     $.get(`${__API_URL__}/api/v1/books`)
     .then(results => Book.loadAll(results))
     .then(callback)
@@ -58,10 +59,7 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   };
 
   Book.fetchOne = (context, callback) => {
-    console.log(`Hit fetchOne.`)
     const id = context.params.id;
-    //console.log(context);
-    //console.log(context.params.id);
     $.get(`${(__API_URL__)}/api/v1/books/${id}`)
     .then(results => Book.loadAll(results))
     .then(callback)
@@ -70,12 +68,11 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
 
   Book.addOne = book => {
     $.post(`${(__API_URL__)}/api/v1/books/add`, book)
+    .then(console.log('Successfully posted new Book'))
     .then(() => page('/'))
-    .catch(errorView.errorCallback);
+    .catch(module.errorView.errorCallback);
   }
 
   module.Book = Book;
-  console.log('book.js finished!');
-})(app);
 
-// $(document).ready(app.Book.fetchAll(app.bookView.initIndexPage));
+})(app);

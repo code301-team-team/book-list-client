@@ -6,23 +6,22 @@
 
 
   addView.renderAddView = function () {
-    $('.container').hide;
-    $('.book-insert').show;
-    $('#book-insert-form').on('submit',(eventData) => {
-      eventData.preventDefault();
 
-      console.log(`event: ${event}`);
-      console.log(`eventData: ${eventData}`);
+    $('.container').hide();
+    $('.book-add').show();
+
+    $('#book-add-form').off('submit');
+    $('#book-add-form').on('submit', function(event) {
+
+      event.preventDefault();
 
       let book = {
-        title: eventData.target.title.value,
-        author: eventData.target.author.value,
-        isbn: eventData.target.isbn.value,
-        description: eventData.target.description.value,
-        image_url: eventData.target.image_url.value
+        title: event.target.title.value,
+        author: event.target.author.value,
+        isbn: event.target.isbn.value,
+        description: event.target.description.value,
+        image_url: event.target.image_url.value
       };
-      console.log(`book: ${book}`)
-
       module.Book.addOne(book);
     })
   };

@@ -12,20 +12,21 @@
       </li>
     </script>
 
-    <!-- <script type="text/x-handlebars-template" id="book-form-template"> -->
-      <div class="book-form">
-        <label for="book-title"></label>
-        <input class="book-title">Title: {{title}} </input>
+    <script type="text/x-handlebars-template" id="book-detail-template">
+      <div class="book-detail">
+        <h4 class="book-title">Title: {{title}} </h4>
         <p class="book-author">Author: {{author}}</p>
         <p class="book-description">Description: {{description}}</p>
         <p class="book-isbn">ISBN: {{isbn}}</p>
-        <p>{{image_url}}</p>
-        <img src='#'></img>
+        <img src='{{image_url}}'></img>
       </div>
-    <!-- </script> -->
+    </script>
 
   </head>
   <body>
+
+    <button id="newBookButton">Make a New Book!</button>
+    <button id="homeButton">Home</button>
 
     <section class="book-list-view container">
       <h3>My Books</h3>
@@ -41,8 +42,8 @@
       <section id="error-message"></section>
     </section>
 
-    <section class="book-insert container">
-      <form class="book-insert-form">
+    <section class="book-add container">
+      <form id="book-add-form">
         <h3>Add New Book</h3>
         <label for="title">Title:</label>
         <input placeholder="Title" require type="text" name="title">
@@ -52,8 +53,9 @@
         <input placeholder="ISBN_13 0123456789012" require type="text" name="isbn">
         <label for="description">Description:</label>
         <input placeholder="Description" require type="text" name="description">
-        <label for="img_url">Cover URL:</label>
-        <input placeholder="http://via.placeholder.com/128x193" require type="text" name="img_url">
+        <label for="image_url">Cover URL:</label>
+        <input placeholder="http://via.placeholder.com/128x193" require type="text" name="image_url">
+        <button type="submit">Add this Book!</button>
       </form>
     </section>
 
@@ -73,8 +75,8 @@
       <label for="description">Description:</label>
       <input placeholder="Description" require type="text" name="description">
 
-      <label for="img_url">Cover URL:</label>
-      <input placeholder="http://via.placeholder.com/128x193" require type="text" name="img_url">
+      <label for="image_url">Cover URL:</label>
+      <input placeholder="http://via.placeholder.com/128x193" require type="text" name="image_url">
 
     </section> -->
 
@@ -85,6 +87,7 @@
     <script src='scripts/models/book.js'></script>
     <script src='scripts/views/book-view.js'></script>
     <script src='scripts/views/error-view.js'></script>
+    <script src='scripts/views/add-view.js'></script>
     <script src='scripts/views/routes.js'></script>
 
   </body>
