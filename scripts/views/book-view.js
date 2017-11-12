@@ -19,13 +19,13 @@
     $('.book-list > img').off('click');
     $('.book-list > img').on('click', event => {
       let book_id = $(event.target).data("bookId");
-      page(`/books/${book_id}`);
+      page(`/book-list-client/books/${book_id}`);
     });
 
     $('#newBookButton').off('click');
-    $('#newBookButton').on('click', () => page('/new'))
+    $('#newBookButton').on('click', () => page('/book-list-client/new'))
     $('#homeButton').off('click');
-    $('#homeButton').on('click', () => page('/'))
+    $('#homeButton').on('click', () => page('/book-list-client/'))
 
     console.log('...Leaving bookView.renderBookList');
 
