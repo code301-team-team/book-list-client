@@ -35,6 +35,8 @@
     console.log('bookView.renderBook');
     $('.container').hide();
     $('.book-detail-view').show();
+
+    $('#book-detail-hook').empty();
     $('#book-detail-hook').append(app.Book.all[0].toHtml('#book-detail-template'));
   };
 
