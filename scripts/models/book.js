@@ -68,7 +68,7 @@ let __API_URL__ = 'https://fr-pc-dm-booklist.herokuapp.com';
   Book.addOne = book => {
     $.post(`${(__API_URL__)}/api/v1/books/add`, book)
     .then(console.log('Successfully posted new Book'))
-    .then(() => page('/'))
+    .then(() => page('/book-list-client/'))
     .catch(module.errorView.errorCallback);
   }
 
