@@ -6,16 +6,29 @@
 
 
   bookView.renderBookList = function () {
-    console.log('bookView.renderBookList');
+
+    console.log('Entering bookView.renderBookList...');
+
     $('.container').hide();
     $('.book-list-view').show();
 
+
+    $('#book-list').empty();
     app.Book.all.forEach(book => $('#book-list').append(book.toHtml('#book-list-template')));
 
+    $('.book-list > img').off('click');
     $('.book-list > img').on('click', event => {
       let book_id = $(event.target).data("bookId");
       page(`/books/${book_id}`);
     });
+
+    $('#newBookButton').off('click');
+    $('#newBookButton').on('click', () => page('/new'))
+    $('#homeButton').off('click');
+    $('#homeButton').on('click', () => page('/'))
+
+    console.log('...Leaving bookView.renderBookList');
+
   };
 
   bookView.renderBook = function () {
@@ -26,15 +39,5 @@
   };
 
   module.bookView = bookView;
-
-  // const bookDetailView = {};
-  //
-  // bookDetailView.initIndexPage = function () {
-  //   $('.container').hide();
-  //   $('.book-detailed-view').show();
-  //   Book.all.book.toHtml();
-  // };
-  //
-  // module.bookDetailView = bookDetailView;
 
 })(app)
