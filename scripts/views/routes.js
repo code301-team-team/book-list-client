@@ -1,9 +1,7 @@
 'use strict';
 
-page('/', () => app.Book.fetchAll(app.bookListView.initIndexPage));
-//page('/books:book_id', () => {
-//  app.Book.fetchOne(ctx, app.bookDetailView.initIndexPage)
-//});
-//page('/new', ctx => app.Book.addOne(app.bookView.initIndexPage));
+page('/book-list-client/', () => app.Book.fetchAll(app.bookView.renderBookList));
+page('/book-list-client/books/:id', context => app.Book.fetchOne(context, app.bookView.renderBook));
+page('/book-list-client/new',() => app.addView.renderAddView());
 
-page();
+page.start();

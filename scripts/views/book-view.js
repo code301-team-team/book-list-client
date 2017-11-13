@@ -2,26 +2,44 @@
 
 (function (module) {
 
-  const bookListView = {};
+  const bookView = {};
 
-  bookListView.initIndexPage = function () {
-    console.log('booklistView.initIndexPage')
+
+  bookView.renderBookList = function () {
+
+    console.log('Entering bookView.renderBookList...');
+
     $('.container').hide();
     $('.book-list-view').show();
-    module.Book.all.map(book => $('#book-list').append(book.toHtml()));
+
+
+    $('#book-list').empty();
+    app.Book.all.forEach(book => $('#book-list').append(book.toHtml('#book-list-template')));
+
+    $('.book-list > img').off('click');
+    $('.book-list > img').on('click', event => {
+      let book_id = $(event.target).data("bookId");
+      page(`/book-list-client/books/${book_id}`);
+    });
+
+    $('#newBookButton').off('click');
+    $('#newBookButton').on('click', () => page('/book-list-client/new'))
+    $('#homeButton').off('click');
+    $('#homeButton').on('click', () => page('/book-list-client/'))
+
+    console.log('...Leaving bookView.renderBookList');
 
   };
 
-  module.bookListView = bookListView;
+  bookView.renderBook = function () {
+    console.log('bookView.renderBook');
+    $('.container').hide();
+    $('.book-detail-view').show();
 
-  // const bookDetailView = {};
-  //
-  // bookDetailView.initIndexPage = function () {
-  //   $('.container').hide();
-  //   $('.book-detailed-view').show();
-  //   Book.all.book.toHtml();
-  // };
-  //
-  // module.bookDetailView = bookDetailView;
+    $('#book-detail-hook').empty();
+    $('#book-detail-hook').append(app.Book.all[0].toHtml('#book-detail-template'));
+  };
+
+  module.bookView = bookView;
 
 })(app)

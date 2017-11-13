@@ -4,26 +4,29 @@
     <meta charset="utf-8">
     <title>Team "Team" Booklist App</title>
 
-    <script type="text/x-handlebars-template" id="book-list-template">
+    <script type=" text/x-handlebars-template" id="book-list-template">
       <li class="book-list">
-        <img class="book-image" src={{image_url}}></img>
+        <img class="book-image" data-book-id="{{book_id}}" src={{image_url}}></img>
         <h4 class="book-title">Title: {{title}} </h4>
         <p class="book-author">Author: {{author}}</p>
       </li>
     </script>
 
-    <script type="text/x-handlebars-template" id="book-detailed-template">
+    <script type="text/x-handlebars-template" id="book-detail-template">
       <div class="book-detail">
-        <img class="book-image" src={{image_url}}></img>
         <h4 class="book-title">Title: {{title}} </h4>
         <p class="book-author">Author: {{author}}</p>
-        <p class="book-author">Description: {{description}}</p>
-        <p class="book-author">ISBN: {{isbn}}</p>
+        <p class="book-description">Description: {{description}}</p>
+        <p class="book-isbn">ISBN: {{isbn}}</p>
+        <img src="{{image_url}}"></img>
       </div>
     </script>
 
   </head>
   <body>
+
+    <button id="newBookButton">Make a New Book!</button>
+    <button id="homeButton">Home</button>
 
     <section class="book-list-view container">
       <h3>My Books</h3>
@@ -31,6 +34,7 @@
     </section>
 
     <section class="book-detail-view container">
+      <div id="book-detail-hook"></div>
     </section>
 
     <section class="error-message container">
@@ -38,14 +42,53 @@
       <section id="error-message"></section>
     </section>
 
+    <section class="book-add container">
+      <form id="book-add-form">
+        <h3>Add New Book</h3>
+        <label for="title">Title:</label>
+        <input placeholder="Title" require type="text" name="title">
+        <label for="author">Author:</label>
+        <input placeholder="Author Name" require type="text" name="author">
+        <label for="isbn">ISBN:</label>
+        <input placeholder="ISBN_13 0123456789012" require type="text" name="isbn">
+        <label for="description">Description:</label>
+        <input placeholder="Description" require type="text" name="description">
+        <label for="image_url">Cover URL:</label>
+        <input placeholder="http://via.placeholder.com/128x193" require type="text" name="image_url">
+        <button type="submit">Add this Book!</button>
+      </form>
+    </section>
+
+    <!-- <section class="book-edit container">
+
+      <h3>Edit Book</h3>
+
+      <label for="title">Title:</label>
+      <input placeholder="Title" require type="text" name="title">
+
+      <label for="author">Author:</label>
+      <input placeholder="Author Name" require type="text" name="author">
+
+      <label for="isbn">ISBN:</label>
+      <input placeholder="ISBN_13 0123456789012" require type="text" name="isbn">
+
+      <label for="description">Description:</label>
+      <input placeholder="Description" require type="text" name="description">
+
+      <label for="image_url">Cover URL:</label>
+      <input placeholder="http://via.placeholder.com/128x193" require type="text" name="image_url">
+
+    </section> -->
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-    <script src='scripts/models/book.js'></script>
-    <script src='scripts/views/book-view.js'></script>
-    <script src='scripts/views/error-view.js'></script>
-    <script src='scripts/views/routes.js'></script>
+    <script src="scripts/models/book.js"></script>
+    <script src="scripts/views/book-view.js"></script>
+    <script src="scripts/views/error-view.js"></script>
+    <script src="scripts/views/add-view.js"></script>
+    <script src="scripts/views/routes.js"></script>
 
   </body>
 </html>
